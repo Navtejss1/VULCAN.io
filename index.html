@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Vulnerability Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <div class="centered-container" >
+        <img src="logo.png" alt="Company Logo" class="centered-image">
+    </div>
+</head>
+<body>
+    <header>
+        <h1>Website Vulnerability Scanner</h1>
+    </header>
+    <main>
+        <section class="scanner">
+            <h2>Check Your Website for Vulnerabilities</h2>
+            <form id="scanForm" action="/scan" method="POST">
+                <input type="url" name="url" placeholder="Enter website URL" required>
+                <button type="submit">Scan</button>
+            </form>
+            <div id="results"></div>
+        </section>
+        <div class="how-container">
+            <img src="how to use.JPG" alt="Company Logo" class="how">
+        </div> <h1 style="color: white"> Security Headers 👇</h1>
+        <div class="headers-container">
+            <img src="headers.JPG" alt="Company Logo" class="headers">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Vulcan.io. All rights reserved.</p>
+    </footer>
+</body>
+</html>

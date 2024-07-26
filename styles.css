@@ -1,0 +1,122 @@
+body {
+    background-image: url('bg.png');
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-attachment: fixed; /* Keeps the background fixed during scroll */
+    margin: 0; /* Removes default margin */
+    padding: 0;   
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-decoration-color: #f4f4f4;;;
+}
+
+header {
+    background-color: #005293;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+.centered-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.416); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Centers the image horizontally */
+}
+
+.centered-image {
+    width: 200px; /* Example width */
+    height: auto; /* Maintains aspect ratio */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.scanner {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.scanner h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="url"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #005293;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.how-container {
+    text-align: center;
+}
+
+.how {
+    width: 50; /* Example width */
+    height: auto;
+    margin: 20px; /* Maintains aspect ratio */
+}
+
+.headers-container {
+    text-align: center; /* Centers the image horizontally */
+}
+
+.headers{
+    width: 100%;
+    height: auto;
+    display: block ;
+    margin-bottom: 70px;
+    /* Maintains aspect ratio */
+}
