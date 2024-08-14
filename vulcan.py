@@ -1,38 +1,39 @@
+#!/usr/bin/env python3
+import cgi
 import requests
 
-domain = "https://www.linkedin.com/"
+# Print required headers for CGI
+print("Content-Type: text/html")
+print()
 
-response = requests.get(domain)
+# Retrieve the URL from the form input
+form = cgi.FieldStorage()
+domain = form.getvalue("url")
 
-headers = response.headers
+# Function to check headers and return results
+def check_security_headers(domain):
+    response = requests.get(domain)
+    headers = response.headers
+    
+    result = f"<h2>Results for {domain}</h2><ul>"
+    
+    header_checks = {
+        "Strict-Transport-Security": "Strict-Transport-Security",
+        "X-Content-Type-Options": "X-Content-Type-Options",
+        "Content-Security-Policy": "Content-Security-Policy",
+        "X-Frame-Options": "X-Frame-Options",
+        "Referrer-Policy": "Referrer-Policy",
+        "Permissions-Policy": "Permissions-Policy"
+    }
+    
+    for header, description in header_checks.items():
+        if header in headers:
+            result += f"<li>{description}: <strong>Not Vulnerable</strong></li>"
+        else:
+            result += f"<li>{description}: <strong>Vulnerable</strong></li>"
+    
+    result += "</ul>"
+    return result
 
-
-if "Strict-Transport-Security" in headers:
-    print(domain + " is not vulnerable to (Strict-Transport-Security)")
-else:
-    print(domain + " is vulnerable to (Strict-Transport-Security)")
-
-if "X-Content-Type-Options" in headers:
-    print(domain + " is not vulnerable to (X-Content-Type-Options)")
-else:
-    print(domain + " is vulnerable to (X-Content-Type-Options)")
-
-if "Content-Security-Policy" in headers:
-    print(domain + " is not vulnerable to (Content-Security-Policy)")
-else:
-    print(domain + " is vulnerable to (Content-Security-Policy)")
-
-if "X-Frame-Options" in headers:
-    print(domain + " is not vulnerable to (X-Frame-Options)")
-else:
-    print(domain + " is vulnerable to (X-Frame-Options)")
-
-if "Referrer-Policy" in headers:
-    print(domain + " is not vulnerable to (Referrer-Policy)")
-else:
-    print(domain + " is vulnerable to (Referrer-Policy)")
-
-if "Permissions-Policy" in headers:
-    print(domain + " is not vulnerable to (Permissions-Policy)")
-else:
-    print(domain + " is vulnerable to (Permissions-Policy)")
+# Output the results
+print(check_security_headers(domain))
